@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Вікторина</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_quiz.css') }}">
+  </head>
+  <body>
+    {% if qeshuon %}
+    <h1>{{qeshuon}}</h1>
+    {% endif %}
+    <form method="post" action="test">
+      <input type="hidden" name="q_id" value="{{id}}">
+        {% for answer in answers %}
+            <p><input type="radio" name="ans_text" value="{{ answer }}">{{ answer }}</p>
+        {% endfor %}
+          <p>
+            <input class="btn" type="submit" value="Відповісти">
+          </p>
+  </form>
